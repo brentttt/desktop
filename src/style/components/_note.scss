@@ -1,0 +1,112 @@
+.note {
+  position: absolute;
+  background: #FFF;
+}
+
+.note__tab {
+  background: #adadad;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.note__tab__title {
+  background: transparent;
+  border: none;
+  color: white;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: white;
+  }
+  &::-moz-placeholder { /* Firefox 19+ */
+    color: white;
+  }
+  &:-ms-input-placeholder { /* IE 10+ */
+    color: white;
+  }
+  &:-moz-placeholder { /* Firefox 18- */
+    color: white;
+  }
+}
+
+.note__tab__move-button {
+  background: repeating-linear-gradient(
+    to right,
+    $dark-outline,
+    $dark-outline,
+    rgba(0, 0, 0, 0) 1px,
+    rgba(0, 0, 0, 0) 2px
+  );
+  background-size: cover;
+  border: none;
+  cursor: move;
+  float: left;
+  height: 100%;
+  margin-right: 5px;
+  width: 30px;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.note__tab__delete {
+  background: transparent;
+  border: 1px solid $dark-outline;
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 17px;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &::before {
+    background: $dark-outline;
+    content: '';
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    top: -5px;
+    transform: rotate(45deg);
+    width: 1px;
+  }
+
+  &::after {
+    background: $dark-outline;
+    content: '';
+    height: 30px;
+    position: absolute;
+    left: 10px;
+    top: -5px;
+    transform: rotate(-45deg);
+    width: 1px;
+  }
+}
+
+.note__body {
+  background: white;
+  border: none;
+  box-sizing: border-box;
+  width: 300px;
+  min-height: 200px;
+  min-width: 230px;
+  margin-bottom: 0;
+  padding: 5px;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &::-webkit-resizer {
+    display: none;
+  }
+}

@@ -1,0 +1,19 @@
+.add-note {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 2rem;
+  left: 10px;
+  line-height: 0;
+  position: absolute;
+  top: 20px;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:hover {
+    color: gold;
+  }
+}
