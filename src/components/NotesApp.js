@@ -105,6 +105,21 @@ export default class NotesApp extends Component {
       currentNote: noteToSelect
     }));
   }
+  handleResize = (noteToUpdate) => {
+    this.setState((prevState) => ({
+      notes: prevState.notes.map((note) => {
+        if(note.id === noteToUpdate.id) {
+          return {
+            ...note,
+            width: noteToUpdate.newSize.width,
+            height: noteToUpdate.newSize.height
+          }
+        } else {
+          return note
+        }
+      })
+    }));
+  }
   handleRevealSettings = () => {
     this.setState((prevState) => ({
       revealSettings: !prevState.revealSettings
@@ -216,6 +231,7 @@ export default class NotesApp extends Component {
           handleUpdateText={this.handleUpdateText}
           handleMove={this.handleMove}
           handleNoteSelect={this.handleNoteSelect}
+          handleResize={this.handleResize}
         />
         <ChooseColor
           colors={this.state.colors.map((color) => color)}

@@ -3,10 +3,15 @@ import React from 'react';
 const Note = (props) => (
     <div className="note"
       id={props.note.id}
-      style={{left: props.note.xPos + "px", top: props.note.yPos + "px", boxShadow: '1px 1px 8px 1px ' + props.backgroundColor}}
+      style={{
+        left: props.note.xPos + "px",
+        top: props.note.yPos + "px",
+        boxShadow: "1px 1px 8px 1px " + props.backgroundColor,
+        width: props.note.width + "px",
+        height: props.note.height + "px",
+      }}
       onMouseDown={(e) => {
         if(e.target.classList.value !== 'note__tab__delete' && e.target.classList.value !== 'note__body') {
-          console.log(e.target.classList.value);
           document.querySelector(".notes-container").append(e.currentTarget);
         }
       }}
@@ -78,6 +83,41 @@ const Note = (props) => (
         }}
       >
       </textarea>
+      <div className="note__resize"
+        onMouseDown={(e) => {
+          const elem = e.currentTarget.parentElement;
+          const elemPosition = elem.getBoundingClientRect();
+
+          const resizing = (e) => {
+            const newWidth = e.clientX - elemPosition.x;
+            const newHeight = e.clientY - elemPosition.y;
+
+            if(newWidth < 250) {
+              return;
+            }
+            if(newHeight < 150) {
+              return;
+            }
+
+            elem.style.width = newWidth + 'px';
+            elem.style.height = newHeight + 'px';
+
+            props.handleResize({
+              id: props.note.id,
+              newSize: {
+                width: newWidth,
+                height: newHeight
+              }
+            })
+
+
+          };
+
+          document.addEventListener('mousemove', resizing);
+          document.addEventListener('mouseup', function() {
+            document.removeEventListener('mousemove', resizing);
+          });
+        }}></div>
     </div>
 );
 

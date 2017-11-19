@@ -16,6 +16,7 @@ const NotesContainer = (props) => (
             handleUpdateText={props.handleUpdateText}
             handleMove={props.handleMove}
             handleNoteSelect={props.handleNoteSelect}
+            handleResize={props.handleResize}
           />
         );
       })}
