@@ -1,11 +1,18 @@
-* {
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono);* {
   margin: 0;
   padding: 0;
-  font-size: 16px;
-  transition: background .3s, color .3s, fill .3s; }
+  font-size: 14px;
+  transition: background .3s, color .3s, fill .3s;
+  font-family: "Roboto Mono", courier, mono; }
 
 body {
   background: #319550; }
+
+button, input, optgroup, select, textarea {
+  font-family: "Roboto Mono", courier, mono; }
+
+button:focus {
+  outline: 0; }
 
 .add-note {
   background: transparent;
@@ -36,7 +43,9 @@ body {
   width: 20%; }
 
 .note {
-  position: absolute; }
+  position: absolute;
+  background: #FFF;
+  overflow: hidden; }
 
 .note__tab {
   background: #adadad;
@@ -84,7 +93,7 @@ body {
   height: 100%;
   overflow: hidden;
   position: relative;
-  width: 18px; }
+  width: 17px; }
   .note__tab__delete:focus {
     outline: 0; }
   .note__tab__delete::before {
@@ -114,16 +123,30 @@ body {
   min-height: 200px;
   min-width: 230px;
   margin-bottom: 0;
-  padding: 5px; }
+  padding: 5px;
+  resize: none; }
   .note__body:focus {
     outline: 0; }
   .note__body::-webkit-resizer {
     display: none; }
 
+.note__resize {
+  background: #bbb9b9;
+  bottom: -10px;
+  cursor: pointer;
+  height: 20px;
+  position: absolute;
+  transform: rotate(-45deg);
+  right: -10px;
+  width: 20px; }
+
 .notes-container {
+  height: 100vh;
   left: 0;
   position: absolute;
-  top: 0; }
+  top: 0;
+  width: 100vw;
+  z-index: -1; }
 
 .settings__button {
   cursor: pointer;
@@ -142,9 +165,75 @@ body {
   box-sizing: border-box;
   left: calc(50vw - 250px);
   padding: 30px;
+  padding-top: 80px;
   position: absolute;
   top: 100px;
   width: 500px; }
+  .settings__modal p {
+    margin: 20px 0 5px 0; }
+
+.settings__modal__header {
+  background: #ededed;
+  box-sizing: border-box;
+  display: flex;
+  height: 70px;
+  justify-content: space-between;
+  left: 0;
+  padding: 0 30px;
+  position: absolute;
+  top: 0;
+  width: 100%; }
+  .settings__modal__header h1 {
+    float: left; }
+
+.settings__modal__color-settings {
+  border: none;
+  cursor: pointer;
+  height: 20px;
+  margin-bottom: 10px;
+  width: 20%; }
+
+.settings__modal__restore {
+  background: #bbb9b9;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-top: 5px;
+  padding: 5px; }
+
+.settings__modal__hide {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  height: 100%;
+  right: 23px;
+  overflow: hidden;
+  position: absolute;
+  top: 23px;
+  width: 25px;
+  height: 25px; }
+  .settings__modal__hide:focus {
+    outline: 0; }
+  .settings__modal__hide::before {
+    background: rgba(0, 0, 0, 0.2);
+    content: '';
+    height: 40px;
+    position: absolute;
+    right: 10px;
+    top: -10px;
+    transform: rotate(45deg);
+    width: 1px; }
+  .settings__modal__hide::after {
+    background: rgba(0, 0, 0, 0.2);
+    content: '';
+    height: 40px;
+    position: absolute;
+    left: 10px;
+    top: -10px;
+    transform: rotate(-45deg);
+    width: 1px; }
 
 .photoshop-picker {
   position: absolute;
