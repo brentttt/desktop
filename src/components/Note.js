@@ -13,15 +13,13 @@ const Note = (props) => (
       onMouseDown={(e) => {
         if(e.target.classList.value !== 'note__tab__delete' && e.target.classList.value !== 'note__body') {
           document.querySelector(".notes-container").append(e.currentTarget);
+          props.handleNoteSelect(props.note.id);
         }
       }}
     >
       <div
         className="note__tab"
         style={{background: props.note.color}}
-        onClick={() => {
-          props.handleNoteSelect(props.note.id);
-        }}
       >
         <input
           className="note__tab__title"
