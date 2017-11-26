@@ -4,6 +4,16 @@
   overflow: hidden;
 }
 
+@media all and (max-width: 600px) {
+  .note {
+    left: 0 !important;
+    height: auto !important;
+    position: relative;
+    top: 0 !important;
+    width: 100% !important;
+  }
+}
+
 .note__tab {
   background: #adadad;
   display: flex;
@@ -52,6 +62,12 @@
 
   &:focus {
     outline: 0;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .note__tab__move-button {
+    display: none;
   }
 }
 

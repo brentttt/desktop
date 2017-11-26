@@ -6,3 +6,10 @@
   width: 100vw;
   z-index: -1;
 }
+
+@media all and (max-width: 600px) {
+  .notes-container {
+    height: 100%;
+    top: 40px;
+  }
+}

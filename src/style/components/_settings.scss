@@ -19,6 +19,13 @@
   }
 }
 
+@media all and (max-width: 600px) {
+  .settings__button {
+    right: 6px;
+    top: 8px;
+  }
+}
+
 .settings__modal {
   background: white;
   box-sizing: border-box;

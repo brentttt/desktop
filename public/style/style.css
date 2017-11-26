@@ -33,7 +33,7 @@ button:focus {
   bottom: 0;
   height: 10px;
   left: 0;
-  position: absolute;
+  position: fixed;
   width: 100vw; }
 
 .color-option__choice {
@@ -46,6 +46,14 @@ button:focus {
   position: absolute;
   background: #FFF;
   overflow: hidden; }
+
+@media all and (max-width: 600px) {
+  .note {
+    left: 0 !important;
+    height: auto !important;
+    position: relative;
+    top: 0 !important;
+    width: 100% !important; } }
 
 .note__tab {
   background: #adadad;
@@ -83,6 +91,10 @@ button:focus {
   width: 30px; }
   .note__tab__move-button:focus {
     outline: 0; }
+
+@media all and (max-width: 600px) {
+  .note__tab__move-button {
+    display: none; } }
 
 .note__tab__delete {
   background: transparent;
@@ -148,6 +160,11 @@ button:focus {
   width: 100vw;
   z-index: -1; }
 
+@media all and (max-width: 600px) {
+  .notes-container {
+    height: 100%;
+    top: 40px; } }
+
 .settings__button {
   cursor: pointer;
   height: 30px;
@@ -159,6 +176,11 @@ button:focus {
     fill: white; }
   .settings__button:hover .st0 {
     fill: gold; }
+
+@media all and (max-width: 600px) {
+  .settings__button {
+    right: 6px;
+    top: 8px; } }
 
 .settings__modal {
   background: white;
